@@ -1,18 +1,184 @@
 /* PRODUTOS — conteúdo preservado do projeto original. */
+
 export const PRODUCTS = [
-  /* Cuidados Corporais — loções e leites corporais */
-  { id: 'p13', name: 'Loção Corporal Iluminadora Vitamina B3', category: 'corporais', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'rose', photo: 'kojicAcidSadoer', price: 500, oldPrice: null, rating: 4.5, reviews: 33, tag: 'Novo',
-    desc: 'Loção corporal com niacinamida e ácido kójico, de sistema de hidratação prolongada para uma pele com aspeto uniforme e luminoso.',
-    benefits: ['Hidratação prolongada com bloqueio de humidade', 'Textura leve, absorção rápida', 'Uniformiza visualmente o aspeto da pele'],
-    ingredients: 'Água, Niacinamida (Vitamina B3), Ácido Kójico, Glicerina, Emolientes.', stock: true },
-  { id: 'p14', name: 'Loção Corporal Vitamina C & Arbutina', category: 'corporais', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'ochre', photo: 'arbutinSadoer', price: 500, oldPrice: null, rating: 4.4, reviews: 27, tag: null,
-    desc: 'Loção corporal com extrato de citrinos e arbutina, para uma hidratação intensa e textura da pele mais refinada.',
-    benefits: ['Hidratação profunda de longa duração', 'Textura da pele mais uniforme e refinada', 'Fragrância cítrica duradoura'],
-    ingredients: 'Água, Vitamina C, Arbutina, Extrato de Citrinos, Glicerina.', stock: true },
-  { id: 'p15', name: 'Loção Corporal Antioxidante Vitamina E', category: 'corporais', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'ink', photo: 'glutathioneSadoer', price: 500, oldPrice: null, rating: 4.6, reviews: 21, tag: null,
-    desc: 'Loção corporal antioxidante com glutationa e ácido hialurónico, para hidratação e revitalização do tom da pele.',
-    benefits: ['Ação antioxidante dupla', 'Hidratação e retenção de água na pele', 'Revitaliza o aspeto do tom da pele'],
-    ingredients: 'Água, Glutationa, Vitamina E, Ácido Hialurónico.', stock: true },
+
+  /* =====================================================
+     CREME SADOER — 1 PRODUTO / 3 VARIANTES
+     ===================================================== */
+  {
+    id: 'p13',
+    name: 'Creme SADOER',
+    category: 'corporais',
+    type: 'cosmetico',
+    segment: 'beleza',
+
+    /* Variante apresentada inicialmente */
+    variant: 'pump',
+    tone: 'rose',
+    photo: 'kojicAcidSadoer',
+
+    price: 500,
+    oldPrice: null,
+    rating: 4.5,
+    reviews: 33,
+    tag: 'Novo',
+
+    desc:
+      'Creme corporal SADOER disponível em três variantes: Kojic Acid, Arbutin e Glutathione.',
+
+    benefits: [
+      'Hidratação prolongada',
+      'Ajuda a uniformizar visualmente o aspeto da pele',
+      'Textura leve e absorção rápida'
+    ],
+
+    ingredients:
+      'Consultar a composição específica da variante selecionada.',
+
+    stock: true,
+
+    /* =================================================
+       VARIANTES DO MESMO PRODUTO
+       ================================================= */
+    variants: [
+
+      {
+        id: 'p13-kojic-acid',
+        name: 'Kojic Acid',
+        label: 'Rosa',
+        tone: 'rose',
+        variant: 'pump',
+        photo: 'kojicAcidSadoer',
+        price: 500,
+        stock: true,
+
+        desc:
+          'Loção corporal com niacinamida e ácido kójico, de sistema de hidratação prolongada para uma pele com aspeto uniforme e luminoso.',
+
+        benefits: [
+          'Hidratação prolongada com bloqueio de humidade',
+          'Textura leve, absorção rápida',
+          'Uniformiza visualmente o aspeto da pele'
+        ],
+
+        ingredients:
+          'Água, Niacinamida (Vitamina B3), Ácido Kójico, Glicerina, Emolientes.'
+      },
+
+      {
+        id: 'p13-arbutin',
+        name: 'Arbutin',
+        label: 'Amarelo',
+        tone: 'ochre',
+        variant: 'pump',
+        photo: 'arbutinSadoer',
+        price: 500,
+        stock: true,
+
+        desc:
+          'Loção corporal com extrato de citrinos e arbutina, para uma hidratação intensa e textura da pele mais refinada.',
+
+        benefits: [
+          'Hidratação profunda de longa duração',
+          'Textura da pele mais uniforme e refinada',
+          'Fragrância cítrica duradoura'
+        ],
+
+        ingredients:
+          'Água, Vitamina C, Arbutina, Extrato de Citrinos, Glicerina.'
+      },
+
+      {
+        id: 'p13-glutathione',
+        name: 'Glutathione',
+        label: 'Roxo',
+        tone: 'ink',
+        variant: 'pump',
+        photo: 'glutathioneSadoer',
+        price: 500,
+        stock: true,
+
+        desc:
+          'Loção corporal antioxidante com glutationa e ácido hialurónico, para hidratação e revitalização do tom da pele.',
+
+        benefits: [
+          'Ação antioxidante dupla',
+          'Hidratação e retenção de água na pele',
+          'Revitaliza o aspeto do tom da pele'
+        ],
+
+        ingredients:
+          'Água, Glutationa, Vitamina E, Ácido Hialurónico.'
+      }
+
+    ]
+  },
+
+
+  /* =====================================================
+     Cuidados Corporais — outros produtos
+     ===================================================== */
+
+  {
+    id: 'p16',
+    name: 'Loção Corporal Leite de Cabra',
+    category: 'corporais',
+    type: 'cosmetico',
+    segment: 'beleza',
+    variant: 'pump',
+    tone: 'ochre',
+    photo: 'goatMilkKormesic',
+    price: 280,
+    oldPrice: null,
+    rating: 4.6,
+    reviews: 29,
+    tag: null,
+
+    desc:
+      'Loção corporal nutritiva à base de leite de cabra, indicada para peles secas que precisam de hidratação intensa.',
+
+    benefits: [
+      'Nutrição intensa para pele seca',
+      'Suaviza e acalma a pele',
+      'Absorção rápida sem sensação pegajosa'
+    ],
+
+    ingredients:
+      'Água, Leite de Cabra, Glicerina, Manteiga de Karité, Emolientes.',
+
+    stock: true
+  },
+
+  {
+    id: 'p18',
+    name: 'Loção Corporal Nutritiva Rich Nourishing',
+    category: 'corporais',
+    type: 'cosmetico',
+    segment: 'beleza',
+    variant: 'pump',
+    tone: 'ink',
+    photo: 'royalParya',
+    price: 400,
+    oldPrice: null,
+    rating: 4.4,
+    reviews: 26,
+    tag: null,
+
+    desc:
+      'Loção corporal de cuidado intensivo com hidratação de 48 horas, para uma pele macia ao longo do dia.',
+
+    benefits: [
+      'Hidratação intensiva até 48h',
+      'Textura leve e não oleosa',
+      'Uso diário para todo o corpo'
+    ],
+
+    ingredients:
+      'Água, Glicerina, Emolientes, Agentes Hidratantes.',
+
+    stock: true
+  },
+  
   { id: 'p16', name: 'Loção Corporal Leite de Cabra', category: 'corporais', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'ochre', photo: 'goatMilkKormesic', price: 280, oldPrice: null, rating: 4.6, reviews: 29, tag: null,
     desc: 'Loção corporal nutritiva à base de leite de cabra, indicada para peles secas que precisam de hidratação intensa.',
     benefits: ['Nutrição intensa para pele seca', 'Suaviza e acalma a pele', 'Absorção rápida sem sensação pegajosa'],
