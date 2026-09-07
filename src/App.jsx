@@ -1049,7 +1049,7 @@ function ProductDetailPage({ productId, goTo, onAdd, onToggleFav, favorites, onO
               <div className="mb-6">
                 <div className="font-medium text-sm mb-2">Benefícios</div>
                 <ul className="space-y-1.5">
-                  {product.benefits.map((b) => (
+                  {(product.benefits || []).map((b) => (
                     <li key={b} className="flex items-start gap-2 text-sm text-ink-soft" style={{ color: 'var(--ink-soft)' }}>
                       <Check size={15} className="mt-0.5 flex-shrink-0" style={{ color: 'var(--primary)' }} /> {b}
                     </li>
