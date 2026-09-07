@@ -178,11 +178,6 @@ export const PRODUCTS = [
 
     stock: true
   },
-  
-  { id: 'p16', name: 'Loção Corporal Leite de Cabra', category: 'corporais', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'ochre', photo: 'goatMilkKormesic', price: 280, oldPrice: null, rating: 4.6, reviews: 29, tag: null,
-    desc: 'Loção corporal nutritiva à base de leite de cabra, indicada para peles secas que precisam de hidratação intensa.',
-    benefits: ['Nutrição intensa para pele seca', 'Suaviza e acalma a pele', 'Absorção rápida sem sensação pegajosa'],
-    ingredients: 'Água, Leite de Cabra, Glicerina, Manteiga de Karité, Emolientes.', stock: true },
 
   /* Higiene Oral */
   { id: 'p19', name: 'Creme Dental Própolis & Menta', category: 'oral', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'ochre', photo: 'propolisMintSadoer', price: 210, oldPrice: null, rating: 5.0, reviews: 8, tag: null,

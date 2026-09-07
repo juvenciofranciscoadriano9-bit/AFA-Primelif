@@ -935,15 +935,25 @@ function ProductsPage({ goTo, onAdd, onToggleFav, favorites, onOpen, initialCate
 
 /* ============================== PRODUCT DETAIL PAGE ============================== */
 function ProductDetailPage({ productId, goTo, onAdd, onToggleFav, favorites, onOpen }) {
-  const product = getProduct(productId);
+  const baseProduct = getProduct(productId);
   const [qty, setQty] = useState(1);
-  const [activeImg, setActiveImg] = useState(0);
+  const [activeVariantId, setActiveVariantId] = useState(null);
 
-  if (!product) return <div className="max-w-7xl mx-auto px-5 py-20 text-center">Produto não encontrado.</div>;
+  if (!baseProduct) return <div className="max-w-7xl mx-auto px-5 py-20 text-center">Produto não encontrado.</div>;
+
+  // Se houver variantes, procuramos a ativa ou usamos os dados base
+  const currentVariant = baseProduct.variants?.find(v => v.id === activeVariantId);
+  
+  // O produto final a ser exibido é a variante (se selecionada) ou o baseProduct
+  // Unimos os dados para garantir que campos que a variante não sobrescreve (como category) existam.
+  const product = currentVariant ? { ...baseProduct, ...currentVariant } : baseProduct;
 
   const related = PRODUCTS.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4);
-  const isFav = favorites.includes(product.id);
+  const isFav = favorites.includes(baseProduct.id); // Favorito sempre pelo ID base
   const gallery = [product.tone, 'ink', 'ochre'];
+
+  // Para o carrinho, enviamos o ID da variante se ela existir, ou o ID base
+  const cartId = product.id;
 
   return (
     <div className="max-w-7xl mx-auto px-5 md:px-8 py-10">
@@ -955,28 +965,43 @@ function ProductDetailPage({ productId, goTo, onAdd, onToggleFav, favorites, onO
         <div>
           <div className="card aspect-square flex items-center justify-center p-10 mb-4 overflow-hidden" style={{ background: 'var(--bg-soft)' }}>
             {getProductPhoto(product.photo) ? (
-              <ProductVisual product={product} className="w-full h-full object-contain" loading="eager" uidPrefix="detail" />
+              <ProductVisual key={product.photo} product={product} className="w-full h-full object-contain" loading="eager" uidPrefix="detail" />
             ) : (
-              <ProductArt variant={product.variant} tone={gallery[activeImg]} uid={`detail-${product.id}-${activeImg}`} className="w-52 h-56" />
+              <ProductArt variant={product.variant} tone={product.tone} uid={`detail-${product.id}`} className="w-52 h-56" />
             )}
           </div>
-          {getProductPhoto(product.photo) ? (
-            <p className="text-xs text-ink-soft" style={{ color: 'var(--ink-soft)' }}>
+          
+          {/* Se houver variantes, mostramos miniaturas para trocar */}
+          {baseProduct.variants && baseProduct.variants.length > 0 && (
+            <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+              {baseProduct.variants.map((v) => {
+                const isSelected = (activeVariantId === v.id) || (!activeVariantId && v.photo === baseProduct.photo);
+                return (
+                  <button
+                    key={v.id}
+                    onClick={() => setActiveVariantId(v.id)}
+                    className="card p-2 w-20 h-20 flex flex-col items-center justify-center flex-shrink-0"
+                    style={{ 
+                      background: 'var(--bg-soft)', 
+                      borderColor: isSelected ? 'var(--primary)' : 'var(--line)', 
+                      borderWidth: isSelected ? 2 : 1 
+                    }}
+                  >
+                    {getProductPhoto(v.photo) ? (
+                      <img src={getProductPhoto(v.photo)} alt={v.name} className="w-full h-full object-contain" />
+                    ) : (
+                      <ProductArt variant={v.variant} tone={v.tone} uid={`thumb-${v.id}`} className="w-8 h-9" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {getProductPhoto(product.photo) && (
+            <p className="text-xs text-ink-soft mt-3" style={{ color: 'var(--ink-soft)' }}>
               {product.photo === 'lineOneGroup' ? 'Foto ilustrativa fornecida pelo fornecedor (produto em conjunto com outros da mesma marca).' : 'Foto fornecida pelo fornecedor.'}
             </p>
-          ) : (
-            <div className="flex gap-3">
-              {gallery.map((tone, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveImg(i)}
-                  className="card p-3 w-20 h-20 flex items-center justify-center"
-                  style={{ background: 'var(--bg-soft)', borderColor: activeImg === i ? 'var(--primary)' : 'var(--line)', borderWidth: activeImg === i ? 2 : 1 }}
-                >
-                  <ProductArt variant={product.variant} tone={tone} uid={`thumb-${product.id}-${i}`} className="w-10 h-11" />
-                </button>
-              ))}
-            </div>
           )}
         </div>
 
@@ -984,7 +1009,9 @@ function ProductDetailPage({ productId, goTo, onAdd, onToggleFav, favorites, onO
           <span className="text-xs uppercase tracking-wide text-ink-soft" style={{ color: 'var(--ink-soft)' }}>
             {CATEGORIES.find((c) => c.id === product.category)?.name}
           </span>
-          <h1 className="font-display text-3xl md:text-4xl mt-1 mb-3">{product.name}</h1>
+          <h1 className="font-display text-3xl md:text-4xl mt-1 mb-3">
+            {baseProduct.name} {currentVariant ? ` - ${currentVariant.name}` : ''}
+          </h1>
           <div className="flex items-center gap-2 mb-4">
             <Stars rating={product.rating} size={16} />
             <span className="text-sm text-ink-soft" style={{ color: 'var(--ink-soft)' }}>{product.rating} · {product.reviews} avaliações</span>
@@ -1013,7 +1040,7 @@ function ProductDetailPage({ productId, goTo, onAdd, onToggleFav, favorites, onO
               <div className="mb-6">
                 <div className="font-medium text-sm mb-2">Informação nutricional (por porção)</div>
                 <div className="card overflow-hidden">
-                  {product.nutritionFacts.map((n, i) => (
+                  {(product.nutritionFacts || []).map((n, i) => (
                     <div key={n.name} className="flex items-center justify-between px-4 py-2 text-sm" style={{ borderTop: i === 0 ? 'none' : '1px solid var(--line)' }}>
                       <span className="text-ink-soft" style={{ color: 'var(--ink-soft)' }}>{n.name}</span>
                       <span className="font-medium">{n.amount}{n.dv && n.dv !== '—' ? ` · ${n.dv} VD*` : ''}</span>
@@ -1075,7 +1102,7 @@ function ProductDetailPage({ productId, goTo, onAdd, onToggleFav, favorites, onO
               <span className="w-8 text-center text-sm font-medium">{qty}</span>
               <button onClick={() => setQty((q) => Math.min(99, q + 1))} className="p-3" aria-label="Aumentar quantidade"><Plus size={14} /></button>
             </div>
-            <button aria-label="Adicionar aos favoritos" onClick={() => onToggleFav(product.id)} className={`heart-btn ${isFav ? 'active' : ''}`} style={{ width: '2.75rem', height: '2.75rem' }}>
+            <button aria-label="Adicionar aos favoritos" onClick={() => onToggleFav(baseProduct.id)} className={`heart-btn ${isFav ? 'active' : ''}`} style={{ width: '2.75rem', height: '2.75rem' }}>
               <Heart size={18} />
             </button>
           </div>
