@@ -180,19 +180,243 @@ export const PRODUCTS = [
   },
 
   /* Higiene Oral */
-  { id: 'p19', name: 'Creme Dental Própolis & Menta', category: 'oral', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'ochre', photo: 'propolisMintSadoer', price: 210, oldPrice: null, rating: 5.0, reviews: 8, tag: null,
+  {
+  id: 'p19',
+  name: 'Creme Dental Própolis & Menta',
+  category: 'oral',
+  type: 'cosmetico',
+  segment: 'beleza',
+  variant: 'pump',
+  tone: 'ochre',
+  photo: 'propolisMintSadoer',
+  price: 210,
+  oldPrice: null,
+  rating: 5.0,
+  reviews: 8,
+  tag: null,
+
+  desc: 'Creme dental multi-efeito com própolis e menta, para uma limpeza profunda e sensação de frescura duradoura.',
+
+  benefits: [
+    'Limpeza profunda multi-efeito',
+    'Ajuda a remover manchas superficiais',
+    'Sensação de frescura duradoura'
+  ],
+
+  ingredients: 'Água, Sílica, Extrato de Própolis, Mentol, Fluoreto de Sódio.',
+
+  stock: true
+},
+
+{
+  id: 'p20',
+  name: 'Creme Dental Gengibre & Hortelã',
+  category: 'oral',
+  type: 'cosmetico',
+  segment: 'beleza',
+  variant: 'pump',
+  tone: 'olive',
+  photo: 'gingerSpearmintSadoer',
+  price: 210,
+  oldPrice: null,
+  rating: 4.6,
+  reviews: 6,
+  tag: null,
+
+  desc: 'Creme dental com extrato de gengibre, indicado para uma limpeza suave e sensação de conforto oral.',
+
+  benefits: [
+    'Limpeza suave do dia a dia',
+    'Aroma refrescante de gengibre e hortelã',
+    'Textura agradável'
+  ],
+
+  ingredients: 'Água, Sílica, Extrato de Gengibre, Óleo de Hortelã-pimenta, Fluoreto de Sódio.',
+
+  stock: true
+},
+
+{
+  id: 'p21',
+ {
+  id: 'p19',
+  name: 'Creme Dental Própolis & Menta',
+  category: 'oral',
+  type: 'cosmetico',
+  segment: 'beleza',
+  variant: 'pump',
+  tone: 'ochre',
+  photo: 'propolisMintSadoer',
+  price: 210,
+  oldPrice: null,
+  rating: 5.0,
+  {
+    id: 'p19',
+    name: 'Creme Dental Própolis & Menta',
+    category: 'oral',
+    type: 'cosmetico',
+    segment: 'beleza',
+    variant: 'pump',
+    tone: 'ochre',
+    photo: 'propolisMintSadoer',
+    price: 210,
+    oldPrice: null,
+    rating: 5.0,
+    reviews: 8,
+    tag: null,
     desc: 'Creme dental multi-efeito com própolis e menta, para uma limpeza profunda e sensação de frescura duradoura.',
-    benefits: ['Limpeza profunda multi-efeito', 'Ajuda a remover manchas superficiais', 'Sensação de frescura duradoura'],
-    ingredients: 'Água, Sílica, Extrato de Própolis, Mentol, Fluoreto de Sódio.', stock: true },
-  { id: 'p20', name: 'Creme Dental Gengibre & Hortelã', category: 'oral', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'olive', photo: 'gingerSpearmintSadoer', price: 210, oldPrice: null, rating: 4.6, reviews: 6, tag: null,
+    benefits: [
+      'Limpeza profunda multi-efeito',
+      'Ajuda a remover manchas superficiais',
+      'Sensação de frescura duradoura'
+    ],
+    ingredients: 'Água, Sílica, Extrato de Própolis, Mentol, Fluoreto de Sódio.',
+    stock: true
+  },
+  {
+    id: 'p20',
+    name: 'Creme Dental Gengibre & Hortelã',
+    category: 'oral',
+    type: 'cosmetico',
+    segment: 'beleza',
+    variant: 'pump',
+    tone: 'olive',
+    photo: 'gingerSpearmintSadoer',
+    price: 210,
+    oldPrice: null,
+    rating: 4.6,
+    reviews: 6,
+    tag: null,
     desc: 'Creme dental com extrato de gengibre, indicado para uma limpeza suave e sensação de conforto oral.',
-    benefits: ['Limpeza suave do dia a dia', 'Aroma refrescante de gengibre e hortelã', 'Textura agradável'],
-    ingredients: 'Água, Sílica, Extrato de Gengibre, Óleo de Hortelã-pimenta, Fluoreto de Sódio.', stock: true },
-  { id: 'p21', name: 'Creme Dental Sal Marinho & Bicarbonato', category: 'oral', type: 'cosmetico', segment: 'beleza', variant: 'pump', tone: 'rose', photo: 'seaSaltBakingSoda', price: 210, oldPrice: null, rating: 5.0, reviews: 3, tag: 'Novo',
+    benefits: [
+      'Limpeza suave do dia a dia',
+      'Aroma refrescante de gengibre e hortelã',
+      'Textura agradável'
+    ],
+    ingredients: 'Água, Sílica, Extrato de Gengibre, Óleo de Hortelã-pimenta, Fluoreto de Sódio.',
+    stock: true
+  },
+  {
+    id: 'p21',
+    name: 'Creme Dental Sal Marinho & Bicarbonato',
+    category: 'oral',
+    type: 'cosmetico',
+    segment: 'beleza',
+    variant: 'pump',
+    tone: 'rose',
+    photo: 'seaSaltBakingSoda',
+    price: 210,
+    oldPrice: null,
+    rating: 5.0,
+    reviews: 3,
+    tag: 'Novo',
     desc: 'Creme dental clareador com sal marinho e bicarbonato de sódio, para ajudar na remoção de manchas superficiais.',
-    benefits: ['Fórmula clareadora com bicarbonato', 'Ajuda a remover manchas superficiais', 'Sensação de boca limpa e fresca'],
-    ingredients: 'Água, Sílica, Sal Marinho, Bicarbonato de Sódio, Fluoreto de Sódio.', stock: true },
-  { "id": "p22", 
+    benefits: [
+      'Fórmula clareadora com bicarbonato',
+      'Ajuda a remover manchas superficiais',
+      'Sensação de boca limpa e fresca'
+    ],
+    ingredients: 'Água, Sílica, Sal Marinho, Bicarbonato de Sódio, Fluoreto de Sódio.',
+    stock: true
+  },
+  { 
+    id: "p22", 
+    name: "Kórmesic Acne 2.5% Benzoyl Peroxide Cream", 
+    category: "cremes", 
+    photo: "acneBenzoylKormesic",
+    type: "creme facial", 
+    segment: "cuidados com a pele", 
+    variant: "tube", 
+    tone: "green", 
+    price: 45, 
+    oldPrice: null, 
+    rating: 4.6, 
+    reviews: 32, 
+    tag: "Ação Antibacteriana",
+    desc: "Creme de tratamento localizado de alta eficácia com Peróxido de Benzoíla a 2.5%, ideal para combater bactérias causadoras da acne, desobstruir poros e reduzir inflamações sem agredir severamente a barreira cutânea.",
+    servingSize: "1 aplicação tópica", 
+    servingsPerContainer: null,
+    nutritionFacts: [],
+    ingredients: "Benzoyl Peroxide 2.5%, Aqua (Water), Glycerin, Centella Asiatica Extract, Cetearyl Alcohol, Mineral Oil, Carbomer, Dimethicone, Phenoxyethanol, Methylparaben, Sodium Hydroxide.",
+    allergens: "Livre de fragrâncias artificiais fortes. Pode causar irritação ou vermelhidão em peles extremamente sensíveis.",
+    usage: "Após limpar a pele minuciosamente, aplique uma fina camada diretamente sobre as áreas afetadas de 1 a 3 vezes ao dia. Recomenda-se iniciar com 1 aplicação diária e aumentar gradualmente.",
+    warnings: "Apenas para uso externo. Evite contato com os olhos, boca e mucosas. O Peróxido de Benzoíla pode manchar e descolorir tecidos (roupas e toalhas). Use protetor solar durante o dia.",
+    storage: "Conservar em local fresco, seco e ao abrigo da luz solar direta. Mantenha a bisnaga firmemente fechada após o uso.", 
+    stock: true 
+  },
+  reviews: 8,
+  tag: null,
+
+  desc: 'Creme dental multi-efeito com própolis e menta, para uma limpeza profunda e sensação de frescura duradoura.',
+
+  benefits: [
+    'Limpeza profunda multi-efeito',
+    'Ajuda a remover manchas superficiais',
+    'Sensação de frescura duradoura'
+  ],
+
+  ingredients: 'Água, Sílica, Extrato de Própolis, Mentol, Fluoreto de Sódio.',
+
+  stock: true
+},
+
+{
+  id: 'p20',
+  name: 'Creme Dental Gengibre & Hortelã',
+  category: 'oral',
+  type: 'cosmetico',
+  segment: 'beleza',
+  variant: 'pump',
+  tone: 'olive',
+  photo: 'gingerSpearmintSadoer',
+  price: 210,
+  oldPrice: null,
+  rating: 4.6,
+  reviews: 6,
+  tag: null,
+
+  desc: 'Creme dental com extrato de gengibre, indicado para uma limpeza suave e sensação de conforto oral.',
+
+  benefits: [
+    'Limpeza suave do dia a dia',
+    'Aroma refrescante de gengibre e hortelã',
+    'Textura agradável'
+  ],
+
+  ingredients: 'Água, Sílica, Extrato de Gengibre, Óleo de Hortelã-pimenta, Fluoreto de Sódio.',
+
+  stock: true
+},
+
+{
+  id: 'p21',
+  name: 'Creme Dental Sal Marinho & Bicarbonato',
+  category: 'oral',
+  type: 'cosmetico',
+  segment: 'beleza',
+  variant: 'pump',
+  tone: 'rose',
+  photo: 'seaSaltBakingSoda',
+  price: 210,
+  oldPrice: null,
+  rating: 5.0,
+  reviews: 3,
+  tag: 'Novo',
+
+  desc: 'Creme dental clareador com sal marinho e bicarbonato de sódio, para ajudar na remoção de manchas superficiais.',
+
+  benefits: [
+    'Fórmula clareadora com bicarbonato',
+    'Ajuda a remover manchas superficiais',
+    'Sensação de boca limpa e fresca'
+  ],
+
+  ingredients: 'Água, Sílica, Sal Marinho, Bicarbonato de Sódio, Fluoreto de Sódio.',
+
+  stock: true
+}
+}
+  "id": "p22", 
   "name": "Kórmesic Acne 2.5% Benzoyl Peroxide Cream", 
   "category": "cremes", 
   "photo": "acneBenzoylKormesic",
@@ -347,4 +571,55 @@ export const PRODUCTS = [
   "storage": "Conservar em local fresco e seco, ao abrigo da luz solar direta. Manter o frasco bem fechado. Verifique o rótulo para confirmar se necessita de refrigeração após aberto.", 
   "stock": true 
 }
+  {
+    id: 'p20',
+    name: 'Perfect Wave Body Lotion',
+    category: 'body',
+    type: 'cosmetico',
+    segment: 'beleza',
+    variant: '200ml',
+    tone: 'blue',
+    photo: 'perfectWaveBodyLotion',
+    price: 350,
+    oldPrice: null,
+    rating: 5.0,
+    reviews: 0,
+    tag: null,
+    desc: 'Loção corporal Perfect Wave, 200 ml, para hidratação e cuidado diário da pele.'
+  },
+
+  {
+    id: 'p21',
+    name: 'Styx Body Lotion Vitamina E',
+    category: 'body',
+    type: 'cosmetico',
+    segment: 'beleza',
+    variant: '200ml',
+    tone: 'white-blue',
+    photo: 'styxVitaminaEBodyLotion',
+    price:350 ,
+    oldPrice: null,
+    rating: 5.0,
+    reviews: 0,
+    tag: null,
+    desc: 'Loção corporal Styx com Vitamina E, 200 ml, para cuidado e hidratação diária da pele.'
+  },
+
+  {
+    id: 'p22',
+    name: 'Royal Parya Body Lotion Rich Nourishing',
+    category: 'body',
+    type: 'cosmetico',
+    segment: 'beleza',
+    variant: '250ml',
+    tone: 'white-blue',
+    photo: 'royalParyaBodyLotion',
+    price: 350,
+    oldPrice: null,
+    rating: 5.0,
+    reviews: 0,
+    tag: null,
+    desc: 'Loção corporal Royal Parya Rich Nourishing, 250 ml, com fórmula nutritiva para o cuidado diário da pele.'
+  }
+
 ];

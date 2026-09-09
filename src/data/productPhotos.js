@@ -5,11 +5,11 @@ import glutathioneSadoer from '../assets/products/glutathione-sadoer.jpg';
 import goatMilkKormesic from '../assets/products/goat-milk-kormesic.jpg';
 import propolisMintSadoer from '../assets/products/propolis-mint-sadoer.jpg';
 import gingerSpearmintSadoer from '../assets/products/ginger-spearmint-sadoer.jpg';
-import seaSaltBakingSoda from '../assets/products/sea-salt-baking-soda.jpg';
+import seaSaltBakingSoda from '../assets/products/sea-salt-baking-sodaer.jpg';
 import lineOneVitaminC from '../assets/products/line-one-vitamin-c.jpg';
 import multivitaminWomenLineOne from '../assets/products/multivitamin-women-line-one.jpg';
 import acneBenzoylKormesic from '../assets/products/acne-benzoyl-kormesic.jpg';
-import royalParya from '../assets/products/royal-parya.jpg';
+import royalParya from '../assets/products/royal-parya (2).jpg';
 import calciumD3Tahoe from '../assets/products/calcium-d3-tahoe.jpg';
 import calciumMagnesiumZincNewLeaf from '../assets/products/calcium-magnesium-zinc-new-leaf.jpg';
 import spirulinaChlorellaVitalVibe from '../assets/products/spirulina-chlorella-vital-vibe.jpg';
@@ -17,6 +17,11 @@ import quercetinZincElderberryDrLexMoss from '../assets/products/quercetin-zinc-
 import Omega3FishOil from '../assets/products/Omega-3 Fish Oil.jpg';
 import PremiumProbioticSupplement300BillionCFU from '../assets/products/Premium Probiotic Supplement 300 Billion CFU.jpg';
 
+// Imagens auxiliares ou faltantes
+import sadoerPrincipal from '../assets/products/1788778068208.jpg';
+import perfectWaveBodyLotion from '../assets/products/1788778147520.jpg';
+import styxVitaminaEBodyLotion from '../assets/products/1788001290194.jpg';
+import royalParyaBodyLotion from '../assets/products/royal-parya (2).jpg';
 
 export const PRODUCT_PHOTOS = {
   // SADOER
@@ -38,9 +43,11 @@ export const PRODUCT_PHOTOS = {
   spirulinaChlorellaVitalVibe,
   quercetinZincElderberryDrLexMoss,
   Omega3FishOil,
-  PremiumProbioticSupplement300BillionCFU
+  PremiumProbioticSupplement300BillionCFU,
+  perfectWaveBodyLotion,
+  styxVitaminaEBodyLotion,
+  royalParyaBodyLotion
 };
-
 
 /**
  * Obtém a fotografia através da photoKey.
@@ -50,7 +57,6 @@ export function getProductPhoto(photoKey) {
 
   return PRODUCT_PHOTOS[photoKey] || null;
 }
-
 
 /**
  * Verifica se existe fotografia para determinada photoKey.
